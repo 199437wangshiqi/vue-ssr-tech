@@ -1,0 +1,34 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+# everyone has his/her own proxyTable configurations
+
+config/proxyTable.js
+
+# If build not changed
+# build/
+
+# Don`t need test folders
+test/
+
+# Don`t need upload your own mock data
+src/conf/mockMap.js
+
+# define your dev/test mode port
+config/port.js
+
+# oss config is prohibit to upload
+# config/oss.conf.js
+
+.history
