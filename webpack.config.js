@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const ExtractPlugin = require('extract-text-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === "development"
 const config = {
@@ -9,6 +10,7 @@ const config = {
     entry: path.join(__dirname, 'src/index.js'),
     output: {
         filename: 'bundle.js',
+        chunkFilename: '[name].bundle.js',
         path: path.join(__dirname, 'dist')
     },
     module: {
@@ -48,7 +50,8 @@ const config = {
                 NODE_ENV: isDev ? '"development"' : '"production"'
             }
         }),
-        new HtmlPlugin()
+        new HtmlPlugin(),
+        new PreloadWebpackPlugin({ rel: 'prefetch' })
     ]
 }
 if (isDev) {
